@@ -29,6 +29,6 @@ Infers the eltype of the output vector from a comprehension (not necessarily Any
 The function is expanding mapped over the first `τ-1` elements and rolling mapped over the rest.
 """
 function mapexrollany(fn::Function, Xₜ::AbstractArray{T}, τ::Integer) where {T}
-	@views vcat(mapexany(fn, Xₜ[1:τ-1]), maprollany(fn, Xₜ[τ:end], τ))
+	@views vcat(mapexany(fn, Xₜ[1:τ-1]), maprollany(fn, Xₜ, τ))
 end
 

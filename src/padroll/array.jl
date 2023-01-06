@@ -30,6 +30,6 @@ Padding is applied over the first `τ-1` elements and the rest is rolling mapped
 """
 function mappadrollany(fn::Function, Xₜ::AbstractArray{T}, τ::Integer, val::M=missing) where {T, M}
 	padding = fill!(similar(Xₜ, Union{T, M}, τ-1), val)
-	@views vcat(padding, maprollany(fn, Xₜ[τ:end], τ))
+	@views vcat(padding, maprollany(fn, Xₜ, τ))
 end
 
