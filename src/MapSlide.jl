@@ -16,7 +16,6 @@ using DocStringExtensions: TYPEDSIGNATURES
 using LoopVectorization
 
 const SLIDEDIM = 1
-const Sequence = Union{Vec, Tup} where {N, T, Vec<:AbstractVector{T}, Tup<:NTuple{N,T}}
 
 include("util.jl")
 for slide in ("ex", "roll", "exroll", "padroll"), target in ("vector", "array")
