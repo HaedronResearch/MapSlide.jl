@@ -1,4 +1,0 @@
-## Windowed Data
-
-abcd
-
