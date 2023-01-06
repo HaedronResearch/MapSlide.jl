@@ -1,30 +1,24 @@
-desc = "Roll a window over data, applying a function over the window."
-keywords = ["rolling", "running", "windowed", "timeseries"]
-name = "RollingFunctions"
-uuid = "b0e4dd01-7b14-53d8-9b45-175a3e362653"
-repo = "https://github.com/JeffreySarnoff/RollingFunctions.jl.git"
-authors = ["Jeffrey Sarnoff and other contributors"]
+name = "MapSlide"
+uuid = "4835d68d-66a2-4400-9ee5-7d9b7f25dca9"
+keywords = ["sliding", "rolling", "running", "moving", "window", "timeseries"]
 license = "MIT"
-version = "v0.7.0"
+desc = "Like mapslices for sliding windows"
+authors = ["Kevin Patel", "Jeffrey Sarnoff", "et al."]
+repo = "https://github.com/kevindirect/MapSlide.jl.git"
+version = "0.1.0"
 
 [deps]
-KahanSummation = "8e2b3108-d4c1-50be-a7a2-16352aec75c3"
+DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
-Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
-StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
 LoopVectorization = "bdcacae8-1622-11e9-2a5c-532679323890"
-AccurateArithmetic = "22286c92-06ac-501d-9306-4abd417d9753"
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
+
+[compat]
+LoopVectorization = "0.12, 0.13, 0.14"
+julia = "^1.7"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
 test = ["Test"]
-
-[compat]
-KahanSummation = "0.3, 0.4"
-Statistics = "1.7"
-StatsBase = "0.33, 0.34, 0.35, 0.36"
-LoopVectorization = "0.12, 0.13, 0.14"
-AccurateArithmetic = "0.3.8, 0.3.9, 0.3.10"
-julia = "1.7.2"
