@@ -36,7 +36,7 @@ Experiment with `map{slide}{!,any}` variations to see if better performance can 
 Make sure your map function does not introduce type instability.
 Please open an issue if you see a potential performance improvement or pitfall.
 
-This package is aimed to be relatively simple, generic, and readable while avoiding major performance pitfalls.
+This package is aimed to be relatively simple, flexible, generic, and readable while avoiding major performance pitfalls.
 For very fast execution of common statistical functions you should look elsewhere, there is a lot of great work in that area.
 In particular `ex` can get very slow for large arrays, mapping across moving slices is powerful but it can be unnecessary/inneficient for certain kinds of operations.
 
