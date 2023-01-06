@@ -10,24 +10,24 @@ Select slice from the slide dim.
 @inline selectdim(A::AbstractArray{T, 5}, i) where {T} = @view A[i, :, :, :, :]
 @inline selectdim(A::AbstractArray, i) = selectdim(A, SLIDEDIM, i)
 
-"""
-$(TYPEDSIGNATURES)
-"""
-function fills(filler::T, xₜ::AbstractVector{T}) where {T}
-	nvals = axes(xₜ)[1].stop
-	fill(filler, nvals)
-end
+# """
+# $(TYPEDSIGNATURES)
+# """
+# function fills(filler::T, xₜ::AbstractVector{T}) where {T}
+# 	nvals = axes(xₜ)[1].stop
+# 	fill(filler, nvals)
+# end
 
-"""
-$(TYPEDSIGNATURES)
-"""
-function fills(filler::T1, xₜ::AbstractVector{T2}) where {T1, T2}
-	elemtype = Union{T1,T2}
-	nvals  = axes(xₜ)[1].stop
-	result = Array{elemtype,1}(undef, nvals)
-	result[:] = filler
-	result
-end
+# """
+# $(TYPEDSIGNATURES)
+# """
+# function fills(filler::T1, xₜ::AbstractVector{T2}) where {T1, T2}
+# 	elemtype = Union{T1,T2}
+# 	nvals  = axes(xₜ)[1].stop
+# 	result = Array{elemtype,1}(undef, nvals)
+# 	result[:] = filler
+# 	result
+# end
 
 """
 $(TYPEDSIGNATURES)
