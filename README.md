@@ -31,7 +31,7 @@ Please open an issue if you see a potential performance improvement or pitfall.
 
 This package is aimed to be relatively simple, flexible, generic, and readable while avoiding major performance pitfalls.
 For very fast execution of common statistical functions you should look elsewhere, there is a lot of great work in that area, see related.
-In particular `ex` can get very slow for large arrays, mapping across moving slices is powerful but it can be unnecessary/inneficient for certain kinds of operations.
+In particular `ex` can get very slow for large arrays, mapping across moving slices is powerful but it can be unnecessary/inefficient for certain kinds of operations.
 
 ## Future Work
 Might add `ewm` for exponentially weighted moving map.
