@@ -6,8 +6,8 @@ Padding is applied over the first `τ-1` elements and the rest is rolling mapped
 """
 function mappadroll!(fn::Function, destₜ::AbstractVector{W}, Xₜ::AbstractArray{T}, τ::Integer, val::M=missing) where {W, T, M}
 	nout = size(Xₜ, SLIDEDIM)
-	fill!(selectdim(destₜ, 1:τ-1), val)
-	maproll!(fn, selectdim(destₜ, τ:nout), Xₜ, τ)
+	fill!(selectouterdim(destₜ, 1:τ-1), val)
+	maproll!(fn, selectouterdim(destₜ, τ:nout), Xₜ, τ)
 	destₜ
 end
 

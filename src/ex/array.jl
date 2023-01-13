@@ -6,7 +6,7 @@ The function is mapped over all values from the first to current index for all i
 """
 function mapex!(fn::Function, destₜ::AbstractVector{W}, Xₜ::AbstractArray{T}) where {W, T}
 	@inbounds for t in eachindex(destₜ)
-		destₜ[t] = fn(selectdim(Xₜ, 1:t))
+		destₜ[t] = fn(selectouterdim(Xₜ, 1:t))
 	end
 	destₜ
 end
@@ -30,6 +30,6 @@ The function is mapped over all values from the first to current index for all i
 """
 function mapexany(fn::Function, Xₜ::AbstractArray{T}) where {T}
 	nout = size(Xₜ, SLIDEDIM)
-	[fn(selectdim(Xₜ, 1:t)) for t in 1:nout]
+	[fn(selectouterdim(Xₜ, 1:t)) for t in 1:nout]
 end
 

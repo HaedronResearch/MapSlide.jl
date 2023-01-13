@@ -6,8 +6,8 @@ The function is expanding mapped over the first `τ-1` elements and rolling mapp
 """
 function mapexroll!(fn::Function, destₜ::AbstractVector{W}, Xₜ::AbstractArray{T}, τ::Integer) where {W, T}
 	nout = size(Xₜ, SLIDEDIM)
-	mapex!(fn, selectdim(destₜ, 1:τ-1), Xₜ)
-	maproll!(fn, selectdim(destₜ, τ:nout), Xₜ, τ)
+	mapex!(fn, selectouterdim(destₜ, 1:τ-1), Xₜ)
+	maproll!(fn, selectouterdim(destₜ, τ:nout), Xₜ, τ)
 	destₜ
 end
 
