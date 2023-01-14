@@ -18,44 +18,14 @@ Select slice at first dim.
 # 	@view arr[i, fill(:, ndims(arr)-1)...]
 # end
 
-# """
-# $(TYPEDSIGNATURES)
-# """
-# function fills(filler::T, xₜ::AbstractVector{T}) where {T}
-# 	nvals = axes(xₜ)[1].stop
-# 	fill(filler, nvals)
-# end
-
-# """
-# $(TYPEDSIGNATURES)
-# """
-# function fills(filler::T1, xₜ::AbstractVector{T2}) where {T1, T2}
-# 	elemtype = Union{T1,T2}
-# 	nvals  = axes(xₜ)[1].stop
-# 	result = Array{elemtype,1}(undef, nvals)
-# 	result[:] = filler
-# 	result
-# end
-
 """
 $(TYPEDSIGNATURES)
-Length of output after rolling operation with length `n` and window `τ`.
+Length of output after rolling operation with length `n` and window `w`.
 """
-function rollsize(n::T, τ::T) where {T<:Signed}
-	(0 < τ <= n) || throw(SpanError(n, τ))
-	n - τ + 1
+function rollsize(n::T, w::T) where {T<:Signed}
+	(0 < w <= n) || throw(SpanError(n, w))
+	n - w + 1
 end
 
-# """
-# $(TYPEDSIGNATURES)
-# Number of values to be imputed
-# """
-# function nfilled(τ::T) where {T<:Signed}
-# 	τ < 1 && throw(SpanError(n, τ))
-# 	τ - 1
-# end
+SpanError(n, w) = ErrorException("\n\tBad window ($w) for length $n.\n" )
 
-SpanError(n, τ) = ErrorException("\n\tBad window ($τ) for length $n.\n" )
-
-# WeightsError(nweighting, τ) =
-# 	ErrorException("\n\tτ ($τ) != length(weighting) ($nweighting))).\n" )

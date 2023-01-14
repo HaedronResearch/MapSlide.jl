@@ -2,12 +2,13 @@
 """
 $(TYPEDSIGNATURES)
 Expanding-rolling map over vector (in-place).
-The function is expanding mapped over the first `τ-1` elements and rolling mapped over the rest.
+The lag `τ` is `w-1`.
+The function is expanding mapped over the first `τ` elements and rolling mapped over the rest.
 """
-function mapexroll!(fn::Function, destₜ::AbstractVector{W}, xₜ::AbstractVector{T}, τ::Integer) where {W, T}
+function mapexroll!(fn::Function, destₜ::AbstractVector{W}, xₜ::AbstractVector{T}, w::Integer) where {W, T}
 	@views begin
-		mapex!(fn, destₜ[1:τ-1], xₜ)
-		maproll!(fn, destₜ[τ:end], xₜ, τ)
+		mapex!(fn, destₜ[1:w-1], xₜ)
+		maproll!(fn, destₜ[w:end], xₜ, w)
 	end
 	destₜ
 end
@@ -16,9 +17,10 @@ end
 $(TYPEDSIGNATURES)
 Expanding-rolling map over Real vector.
 Uses `T` as the eltype of the output vector.
-The function is expanding mapped over the first `τ-1` elements and rolling mapped over the rest.
+The lag `τ` is `w-1`.
+The function is expanding mapped over the first `τ` elements and rolling mapped over the rest.
 """
-function mapexroll(fn::Function, xₜ::AbstractVector{T}, τ::Integer) where {T<:Real}
-	mapexroll!(fn, similar(xₜ), xₜ, τ)
+function mapexroll(fn::Function, xₜ::AbstractVector{T}, w::Integer) where {T<:Real}
+	mapexroll!(fn, similar(xₜ), xₜ, w)
 end
 

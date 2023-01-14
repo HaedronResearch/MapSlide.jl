@@ -1,7 +1,7 @@
 # MapSlide.jl
 
 This package lets you map a function over sliding window slices.
-Think of it like `Base.mapslices` for moving window map operations.
+Think of it like `Base.mapslices` for sliding window map operations.
 A fork of [RollingFunctions.jl](https://github.com/JeffreySarnoff/RollingFunctions.jl).
 This package is a WIP.
 
@@ -13,11 +13,11 @@ This package is a WIP.
 * Currently no weighted map slides
 * AccurateArithmetic was removed, fewer dependencies in general
 
-## Available Window Slides
+## Available Window Slides (`w`: window size, `τ`: lag (`w-1`))
 * `ex`: maps function to expanding slice from current index to the beginning.
-* `roll`: maps function to fixed width moving window slices. This operation truncates by `τ-1`, where `τ` is the lag / window size.
-* `exroll`: `ex`for the first `τ-1` elements (to prevent truncation), `roll` thereafter.
-* `padroll`: constant padding for the first `τ-1` elements (to prevent truncation), `roll` thereafter.
+* `roll`: maps function to fixed width moving window slices. This operation truncates by `τ`.
+* `exroll`: `ex` for the first `τ` elements (to prevent truncation), `roll` thereafter.
+* `padroll`: constant padding for the first `τ` elements (to prevent truncation), `roll` thereafter.
 
 ## Notes
 Use the `map{slide}any` to infer the output eltype from the function output instead of using the input array eltype.

@@ -2,12 +2,13 @@
 """
 $(TYPEDSIGNATURES)
 Expanding-rolling map over array (in-place).
-The function is expanding mapped over the first `τ-1` elements and rolling mapped over the rest.
+The lag `τ` is `w-1`.
+The function is expanding mapped over the first `τ` elements and rolling mapped over the rest.
 """
-function mapexroll!(fn::Function, destₜ::AbstractVector{W}, Xₜ::AbstractArray{T}, τ::Integer) where {W, T}
+function mapexroll!(fn::Function, destₜ::AbstractVector{W}, Xₜ::AbstractArray{T}, w::Integer) where {W, T}
 	nout = size(Xₜ, SLIDEDIM)
-	mapex!(fn, selectouterdim(destₜ, 1:τ-1), Xₜ)
-	maproll!(fn, selectouterdim(destₜ, τ:nout), Xₜ, τ)
+	mapex!(fn, selectouterdim(destₜ, 1:w-1), Xₜ)
+	maproll!(fn, selectouterdim(destₜ, w:nout), Xₜ, w)
 	destₜ
 end
 
@@ -15,20 +16,22 @@ end
 $(TYPEDSIGNATURES)
 Expanding-rolling map over Real array.
 Uses `T` as the eltype of the output vector.
-The function is expanding mapped over the first `τ-1` elements and rolling mapped over the rest.
+The lag `τ` is `w-1`.
+The function is expanding mapped over the first `τ` elements and rolling mapped over the rest.
 """
-function mapexroll(fn::Function, Xₜ::AbstractArray{T}, τ::Integer) where {T<:Real}
+function mapexroll(fn::Function, Xₜ::AbstractArray{T}, w::Integer) where {T<:Real}
 	nout = size(Xₜ, SLIDEDIM)
-	mapexroll!(fn, similar(Xₜ, nout), Xₜ, τ)
+	mapexroll!(fn, similar(Xₜ, nout), Xₜ, w)
 end
 
 """
 $(TYPEDSIGNATURES)
 Expanding-rolling map over array.
 Infers the eltype of the output vector from a comprehension (not necessarily Any).
-The function is expanding mapped over the first `τ-1` elements and rolling mapped over the rest.
+The lag `τ` is `w-1`.
+The function is expanding mapped over the first `τ` elements and rolling mapped over the rest.
 """
-function mapexrollany(fn::Function, Xₜ::AbstractArray{T}, τ::Integer) where {T}
-	@views vcat(mapexany(fn, Xₜ[1:τ-1]), maprollany(fn, Xₜ, τ))
+function mapexrollany(fn::Function, Xₜ::AbstractArray{T}, w::Integer) where {T}
+	@views vcat(mapexany(fn, Xₜ[1:w-1]), maprollany(fn, Xₜ, w))
 end
 
