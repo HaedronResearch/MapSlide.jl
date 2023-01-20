@@ -2,8 +2,13 @@
 
 This package lets you map a function over sliding window slices.
 Think of it like `Base.mapslices` for sliding window map operations.
-A fork of [RollingFunctions.jl](https://github.com/JeffreySarnoff/RollingFunctions.jl).
-This package is a WIP.
+
+This branch was deprecated in favor of a different [StaticKernels.jl](https://github.com/stev47/StaticKernels.jl) based implementation.
+
+This branch started as a fork of [RollingFunctions.jl](https://github.com/JeffreySarnoff/RollingFunctions.jl).
+The underlying logic is still similar to RollingFunctions.jl, but it is simpler with almost no deps, fewer features,
+and more flexibility in some ways.
+
 
 ## Differences to RollingFunctions.jl
 * Functions are named like this `map{slide}` (where slide can be `ex`, `roll`, etc) to follow Julia Base conventions
@@ -11,7 +16,7 @@ This package is a WIP.
 * No multi vector methods, use an `AbstractArray` to operate over multiple vectors
 * No wrappers such as `maproll(mean, ...)`
 * Currently no weighted map slides
-* AccurateArithmetic was removed, fewer dependencies in general
+* AccurateArithmetic was removed, no deps other than `DocStringExtensions` for docs
 
 ## Available Window Slides (`w`: window size, `τ`: lag (`w-1`))
 * `ex`: maps function to expanding slice from current index to the beginning.
