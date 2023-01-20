@@ -1,19 +1,11 @@
 module MapSlide
 
-#using Base: @kwdef
-
 export mapex!, mapex, mapexany
 export maproll!, maproll, maprollany
 export mapexroll!, mapexroll, mapexrollany
 export mappadroll!, mappadroll, mappadrollany
-# export mapew, mapewany
 
 using DocStringExtensions: TYPEDSIGNATURES
-# using LinearAlgebra: normalize
-# using StatsBase: AbstractWeights, Weights, FrequencyWeights, AnalyticWeights, ProbabilityWeights
-# using KahanSummation: sum_kbn
-# using AccurateArithmetic: sum_oro
-using LoopVectorization
 
 const SLIDEDIM = 1
 
