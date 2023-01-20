@@ -3,12 +3,11 @@
 This package lets you map a function over sliding window slices.
 Think of it like `Base.mapslices` for sliding window map operations.
 
-This branch was deprecated in favor of a different [StaticKernels.jl](https://github.com/stev47/StaticKernels.jl) based implementation.
+This branch was deprecated in favor of a [StaticKernels.jl](https://github.com/stev47/StaticKernels.jl) based implementation.
 
 This branch started as a fork of [RollingFunctions.jl](https://github.com/JeffreySarnoff/RollingFunctions.jl).
 The underlying logic is still similar to RollingFunctions.jl, but it is simpler with almost no deps, fewer features,
 and more flexibility in some ways.
-
 
 ## Differences to RollingFunctions.jl
 * Functions are named like this `map{slide}` (where slide can be `ex`, `roll`, etc) to follow Julia Base conventions
