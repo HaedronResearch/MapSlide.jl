@@ -40,6 +40,7 @@ Might add `ewm` for exponentially weighted moving map.
 * [RollingFunctions.jl](https://github.com/JeffreySarnoff/RollingFunctions.jl)
 * The `mapwindow` function from [ImageFiltering](https://github.com/JuliaImages/ImageFiltering.jl)
 * The `slidingwindow` function from [MLDataPattern](https://github.com/JuliaML/MLDataPattern.jl) produces a moving window view
+* [StaticKernels](https://github.com/stev47/StaticKernels.jl)
 * Fast statistical functions over time: [MaxMinFilters.jl](https://github.com/sairus7/MaxMinFilters.jl), [SortFilters](https://github.com/sairus7/SortFilters.jl)
 
 ## Thanks
