@@ -4,7 +4,6 @@ keywords = ["sliding", "rolling", "running", "moving", "window", "timeseries"]
 license = "MIT"
 desc = "Like mapslices for sliding windows"
 authors = ["Kevin Patel", "Jeffrey Sarnoff", "et al."]
-repo = "https://github.com/kevindirect/MapSlide.jl.git"
 version = "0.1.0"
 
 [deps]
